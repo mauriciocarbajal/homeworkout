@@ -6,6 +6,8 @@
   "rules": {
     "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
     "comma-dangle": ["error", "only-multiline"],
-    "react/jsx-filename-extension": ["always"]
+    "react/jsx-filename-extension": ["always"],
+    "react/forbid-prop-types": ["always"],
+    "react/prefer-stateless-function": ["never"]
   }
 }

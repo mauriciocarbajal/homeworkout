@@ -2,16 +2,16 @@ const pre = [];
 
 const post = [
   {
-    name: 'Abdominales',
-    desc: '30 grados',
-    series: 4,
-    repet: 10,
-  },
-  {
     name: 'Plancha',
     desc: 'Cuerpo recto, antebrazos en el piso',
     series: 1,
     repet: 30,
+  },
+  {
+    name: 'Abdominales',
+    desc: '30 grados',
+    series: 4,
+    repet: 10,
   },
 ];
 
