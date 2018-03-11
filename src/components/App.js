@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
-const App = () => <h1>Homeworkout</h1>;
+class App extends PureComponent {
+  render() {
+    console.log(this.props);
+    return (
+      <p>PureComponent</p>
+    );
+  }
+}
 
 export default App;

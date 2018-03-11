@@ -1,13 +1,14 @@
-var webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   context: __dirname,
-  devtool: "inline-sourcemap",
-  entry: "./src/index.js",
+  devtool: 'inline-sourcemap',
+  entry: './src/index.js',
   output: {
-    path: __dirname + "/dist",
-    filename: "bundle.js"
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -19,7 +20,6 @@ module.exports = {
       template: './index.ejs',
       filename: 'index.html',
     })
-    //new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false })
   ],
   module: {
     rules: [
