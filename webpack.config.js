@@ -24,6 +24,8 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.svg$/, loader: 'svg-inline-loader' },
+      { test: /\.css$/, loader: 'inline-css-webpack-loader' },
     ],
   },
 };
