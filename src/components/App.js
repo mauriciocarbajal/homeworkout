@@ -2,19 +2,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 import Exercise from './Exercise';
+import Rest from './Rest';
 import DayComplete from './DayComplete';
 
-const getTrainingDay = () => {
-  const currentDate = new Date();
-  const currentDay = currentDate.getDay();
-  if (currentDay >= 1 && currentDay <= 2) {
-    return 'monday';
-  } else if (currentDay >= 3 && currentDay <= 4) {
-    return 'wednesday';
-  }
-  return 'friday';
-};
-
+import { getTrainingDay } from '../utils/dates';
 
 class App extends PureComponent {
   constructor(props) {
@@ -28,14 +19,16 @@ class App extends PureComponent {
     ];
 
     this.state = {
+      resting: false,
       currentList,
       index: 0,
       last: currentList.length - 1,
       currentSerie: 1,
     };
 
-    this.updateExercise = this.updateExercise.bind(this);
     this.updateSerie = this.updateSerie.bind(this);
+    this.updateExercise = this.updateExercise.bind(this);
+    this.rest = this.rest.bind(this);
   }
 
   updateExercise() {
@@ -60,20 +53,37 @@ class App extends PureComponent {
 
     if (currentSerie === currentList[index].series) {
       this.updateExercise();
+      this.setState({
+        resting: false,
+      });
     } else {
       this.setState({
+        resting: false,
         currentSerie: currentSerie + 1,
       });
     }
   }
 
+  rest() {
+    this.setState({
+      resting: true,
+    });
+  }
+
   render() {
     const {
+      resting,
       currentList,
       index,
       last,
       currentSerie,
     } = this.state;
+
+    if (resting) {
+      return (
+        <Rest updateSerie={this.updateSerie} />
+      );
+    }
 
     if (index > last) {
       return (
@@ -82,12 +92,15 @@ class App extends PureComponent {
     }
 
     return (
-      <Exercise
-        exercise={currentList[index]}
-        currentSerie={currentSerie}
-        updateSerie={this.updateSerie}
-        moveNext={this.updateExercise}
-      />
+      <div>
+        <Exercise
+          exercise={currentList[index]}
+          currentSerie={currentSerie}
+          updateSerie={this.updateSerie}
+          moveNext={this.updateExercise}
+        />
+        <button onClick={this.rest}>Done</button>
+      </div>
     );
   }
 }
