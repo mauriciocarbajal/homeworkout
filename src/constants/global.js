@@ -1,4 +1,4 @@
-const DEBUG_MILISEC_VALUE = 10;
+const DEBUG_MILISEC_VALUE = 1000;
 
 export const REST_TIME = 40;
 export const REST_TIME_MS = REST_TIME * DEBUG_MILISEC_VALUE;

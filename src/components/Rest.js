@@ -40,21 +40,21 @@ class Rest extends PureComponent {
   render() {
     const { restedMS } = this.state;
 
-    const percentage = 100 * (restedMS / REST_TIME_MS);
+    const percentage = Math.round(100 * (restedMS / REST_TIME_MS));
 
     return (
       <div>
         <div style={styles.container}>
           <h2 style={styles.title}>WELL DONE! REST</h2>
         </div>
-        <CircularProgressbar
-          percentage={percentage}
-          styles={{
-            width: '200px',
-            height: '200px',
-            path: { stroke: `rgba(62, 152, 199, ${percentage / 100})` },
-          }}
-        />
+        <div style={{ width: 120, height: 120, margin: 'auto' }}>
+          <CircularProgressbar
+            percentage={percentage}
+            styles={{
+              path: { stroke: `rgba(62, 152, 199, ${percentage / 100})` },
+            }}
+          />
+        </div>
       </div>
     );
   }
