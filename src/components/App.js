@@ -99,7 +99,7 @@ class App extends PureComponent {
           updateSerie={this.updateSerie}
           moveNext={this.updateExercise}
         />
-        <button onClick={this.rest}>Done</button>
+        <button onClick={this.rest}>Hecho</button>
       </div>
     );
   }
