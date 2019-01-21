@@ -45,7 +45,7 @@ class Rest extends PureComponent {
     return (
       <div>
         <div style={styles.container}>
-          <h2 style={styles.title}>WELL DONE! REST</h2>
+          <h2 style={styles.title}>Bien hecho! Descansa</h2>
         </div>
         <div style={{ width: 120, height: 120, margin: 'auto' }}>
           <CircularProgressbar
